@@ -3,55 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Guincho 24h — Auto Socorro e Reboque</title>
   <meta name="description" content="Serviço de guincho e auto socorro 24 horas — Reboque, socorro mecânico, transporte de veículos.">
-  <style>
-    :root{--accent:#e63946;--dark:#112;--muted:#6b6b6b;--card:#fff;--bg:#f6f7fb}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,SegoeUI,Arial,sans-serif;margin:0;background:var(--bg);color:#111}
-    header{background:linear-gradient(90deg, rgba(22,22,22,0.85), rgba(34,34,34,0.6)), url('https://images.unsplash.com/photo-1526403224744-6f7b1b1a0b7b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=2a8f8a1fb2b8d2efb4f2d9f6b4b8c9d6') center/cover no-repeat;color:#fff;padding:48px 16px}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    header .top{display:flex;justify-content:space-between;align-items:center}
-    .brand{font-weight:700;font-size:20px;letter-spacing:0.4px}
-    .phone{background:rgba(255,255,255,0.08);padding:8px 12px;border-radius:8px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:24px;align-items:center;padding:48px 0}
-    .hero h1{font-size:32px;margin:0 0 12px}
-    .hero p{color:var(--muted);margin:0 0 18px}
-    .cta{display:flex;gap:12px}
-    .btn{background:var(--accent);color:#fff;padding:12px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
-    .btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.18)}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-
-    /* Serviço rápido (form) */
-    form{display:flex;flex-direction:column;gap:10px}
-    label{font-size:13px;color:var(--muted)}
-    input[type=text],input[type=tel],input[type=email],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px}
-    textarea{min-height:96px;resize:vertical}
-    .small{font-size:13px;color:var(--muted)}
-
-    /* Seções */
-    section{padding:36px 0}
-    h2{margin:0 0 12px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .service{background:#fff;padding:16px;border-radius:10px;text-align:center}
-    .service img{width:64px;height:64px;object-fit:cover;border-radius:8px;margin-bottom:12px}
-
-    /* Galeria */
-    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px}
-
-    footer{background:#0f1724;color:#fff;padding:24px 0}
-    .footer-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-    .social a{margin-right:10px;color:inherit;text-decoration:none}
-
-    /* Responsivo */
-    @media (max-width:980px){.hero{grid-template-columns:1fr;}.grid{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:560px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.phone{display:none}}
-
-    /* Mensagem de envio */
-    .toast{position:fixed;right:16px;bottom:16px;background:#0f1724;color:#fff;padding:12px 16px;border-radius:10px;display:none}
-  </style>
-</head>
+  <title>Guincho 24h — Auto Socorro e Reboque</title>
+  <link rel="stylesheet" href="./main.css">
+ </head>
 <body>
   <header>
     <div class="container">
@@ -171,23 +126,5 @@
   </footer>
   <div id="toast" class="toast">Pedido enviado — entraremos em contato.</div>
 
-  <script>
-    function showToast(text){const t=document.getElementById('toast');t.textContent=text;t.style.display='block';setTimeout(()=>t.style.display='none',3500)}
-
-    document.getElementById('form-service').addEventListener('submit',function(e){e.preventDefault();
-      // Coletar dados (aqui você pode enviar por fetch para o seu backend)
-      const data = new FormData(e.target);
-      console.log('Pedido de reboque:',Object.fromEntries(data.entries()));
-      showToast('Pedido de reboque enviado. Aguarde nosso contato.');
-      e.target.reset();
-    });
-
-    document.getElementById('form-contact').addEventListener('submit',function(e){e.preventDefault();
-      const data = new FormData(e.target);
-      console.log('Mensagem contato:',Object.fromEntries(data.entries()));
-      showToast('Mensagem enviada — responderemos em breve.');
-      e.target.reset();
-    });
-  </script>
 </body>
 </html>
